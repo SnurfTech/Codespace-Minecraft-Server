@@ -5,4 +5,4 @@ This repository provides an easy way to set up a [Paper](papermc.io) Minecraft s
 
 By the way, in order for the server to work with [PrismarineJS/prismarine-web-client](https://github.com/PrismarineJS/prismarine-web-client), it needs to be in offline mode. This is automatically turned on, but I'm just letting you know.
 
-To begin, create a codespace using this repository and run this command: ```./start.sh```.
+To begin, create a codespace using this repository and run this command: ```bash start.sh```.
