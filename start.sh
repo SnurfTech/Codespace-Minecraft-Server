@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 export SERVER_START="java -Xms7168M -Xmx7168M -XX:+AlwaysPreTouch -XX:+DisableExplicitGC -XX:+ParallelRefProcEnabled -XX:+PerfDisableSharedMem -XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:G1HeapRegionSize=8M -XX:G1HeapWastePercent=5 -XX:G1MaxNewSizePercent=40 -XX:G1MixedGCCountTarget=4 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1NewSizePercent=30 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:G1ReservePercent=20 -XX:InitiatingHeapOccupancyPercent=15 -XX:MaxGCPauseMillis=200 -XX:MaxTenuringThreshold=1 -XX:SurvivorRatio=32 -Dusing.aikars.flags=https://mcflags.emc.gs -Daikars.new.flags=true -jar server.jar --nogui"
 
@@ -72,6 +72,9 @@ for link in "${links[@]}"; do
 done
 
 cd ../..
+nvm install 24
+nvm use 24
+nvm alias default 24
 npm install -g bun
 wget https://github.com/zardoy/mwc-proxy/raw/refs/heads/main/bun/ws-proxy.ts
 sed -i 's|const THIS_WS_PORT = 80|const THIS_WS_PORT = 8080|g' ws-proxy.ts
