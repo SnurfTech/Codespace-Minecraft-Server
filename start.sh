@@ -7,7 +7,6 @@ cd server
 
 curl -L https://fill-data.papermc.io/v1/objects/51157c86280ef0c9f5a10f775b6ebb516dfcfe4f67820305847eccaae31df944/paper-1.21.11-123.jar -o server.jar
 
-$SERVER_START
 echo "eula=true" > eula.txt
 sed -i 's|online-mode=true|online-mode=false|g' server.properties
 mkdir -p plugins
