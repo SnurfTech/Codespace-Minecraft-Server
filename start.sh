@@ -5,7 +5,7 @@ export SERVER_START="java -Xms7168M -Xmx7168M -XX:+AlwaysPreTouch -XX:+DisableEx
 mkdir server
 cd server
 
-curl https://fill-data.papermc.io/v1/objects/51157c86280ef0c9f5a10f775b6ebb516dfcfe4f67820305847eccaae31df944/paper-1.21.11-123.jar -o server.jar
+curl -L https://fill-data.papermc.io/v1/objects/51157c86280ef0c9f5a10f775b6ebb516dfcfe4f67820305847eccaae31df944/paper-1.21.11-123.jar -o server.jar
 
 $SERVER_START
 echo "eula=true" > eula.txt
