@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 export SERVER_START="java -Xmx2G -jar forge-1.20.1-47.4.16.jar nogui"
 
@@ -25,6 +25,9 @@ cd ..
 echo "stop" | $SERVER_START
 sed -i 's|online-mode=true|online-mode=false|g' server.properties
 
+nvm install 24
+nvm use 24
+nvm alias default 24
 npm install -g bun
 wget https://github.com/zardoy/mwc-proxy/raw/refs/heads/main/bun/ws-proxy.ts
 sed -i 's|const THIS_WS_PORT = 80|const THIS_WS_PORT = 8080|g' ws-proxy.ts
