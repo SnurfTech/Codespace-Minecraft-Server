@@ -9,6 +9,7 @@ curl https://fill-data.papermc.io/v1/objects/51157c86280ef0c9f5a10f775b6ebb516df
 
 $SERVER_START
 echo "eula=true" > eula.txt
+sed -i 's|online-mode=true|online-mode=false|g' server.properties
 mkdir -p plugins
 cd plugins
 wget https://hangarcdn.papermc.io/plugins/ViaVersion/ViaVersion/versions/5.7.1/PAPER/ViaVersion-5.7.1.jar
