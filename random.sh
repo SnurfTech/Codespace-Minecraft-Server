@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-export SERVER_START="java -Xmx2G -jar forge-1.20.1-47.4.16.jar nogui"
+export SERVER_START="./run.sh"
 
 mkdir server
 cd server
