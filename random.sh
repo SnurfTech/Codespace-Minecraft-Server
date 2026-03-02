@@ -38,4 +38,7 @@ echo "gh codespace stop -c $CODESPACE_NAME" >> ~/.bashrc
 
 echo "Now, whenever you stop the Minecraft server with the stop command, the GitHub codespace will also stop running. And if you restart the codespace, the Minecraft server will automatically start running. The Minecraft server will now be started."
 sleep 3
+bun run ws-proxy.ts > /dev/null 2>&1 &
+gh codespace ports visibility 8080:public -c $CODESPACE_NAME
 $SERVER_START
+gh codespace stop -c $CODESPACE_NAME
