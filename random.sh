@@ -1,5 +1,3 @@
-#!/usr/bin/env bash
-
 export SERVER_START="./run.sh"
 
 mkdir server
