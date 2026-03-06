@@ -36,6 +36,7 @@ on join:
     wait 1 tick
     execute console command "attribute %player% scale base set 0.97"
 EOF
+cd ..
 
 echo "If you would like to add any custom plugins to the server, you can now. (Using URLs.) When you are done, type \"done\"."
 
