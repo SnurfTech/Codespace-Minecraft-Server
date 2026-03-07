@@ -19,24 +19,22 @@ cd plugins
 wget https://hangarcdn.papermc.io/plugins/ViaVersion/ViaVersion/versions/$VIAVERSION_VERSION/PAPER/ViaVersion-$VIAVERSION_VERSION.jar
 wget https://hangarcdn.papermc.io/plugins/ViaVersion/ViaBackwards/versions/$VIABACKWARDS_VERSION/PAPER/ViaBackwards-$VIABACKWARDS_VERSION.jar
 wget https://hangercdn.papermc.io/plugins/SkriptLand/Skript/versions/$SKRIPT_VERSION/PAPER/Skript-$SKRIPT_VERSION.jar
-wget https://api.spiget.org/v2/resources/59556/download -O EnchantmentSolution.jar
-wget https://api.spiget.org/v2/resources/59556/download -O CrashAPI.jar
+#wget https://api.spiget.org/v2/resources/59556/download -O EnchantmentSolution.jar
+#wget https://api.spiget.org/v2/resources/59556/download -O CrashAPI.jar
 
 cd ..
-$SERVER_START <<EOF
-stop
-EOF
+echo "stop" | $SERVER_START
 
-cd plugins/EnchantmentSolution
-sed -i '/enchanting_table:/,/anvil:/ s/custom_gui: .*/custom_gui: true/' config.yml
-sed -i '/anvil:/,/grindstone:/ s/custom_gui: .*/custom_gui: false/' config.yml
-sed -i '/grindstone:/,/max_enchantments:/ s/custom_gui: .*/custom_gui: false/' config.yml
-sed -i '/enchanting_table:/,/anvil:/ s/level_fifty: .*/level_fifty: false/' config.yml
-sed -i 's/reset_on_reload: .*/reset_on_reload: false/' config.yml
-sed -i 's/on_login: .*/on_login: false/' config.yml
-sed -i '/custom_enchantments:/,$ s/    enabled: true/    enabled: false/g' enchantments.yml
+#cd plugins/EnchantmentSolution
+#sed -i '/enchanting_table:/,/anvil:/ s/custom_gui: .*/custom_gui: true/' config.yml
+#sed -i '/anvil:/,/grindstone:/ s/custom_gui: .*/custom_gui: false/' config.yml
+#sed -i '/grindstone:/,/max_enchantments:/ s/custom_gui: .*/custom_gui: false/' config.yml
+#sed -i '/enchanting_table:/,/anvil:/ s/level_fifty: .*/level_fifty: false/' config.yml
+#sed -i 's/reset_on_reload: .*/reset_on_reload: false/' config.yml
+#sed -i 's/on_login: .*/on_login: false/' config.yml
+#sed -i '/custom_enchantments:/,$ s/    enabled: true/    enabled: false/g' enchantments.yml
 
-cd ../Skript/scripts
+cd plugins/Skript/scripts
 cat << EOF > wall_fix.sk
 on join:
     # Use a tiny delay (1 tick) to ensure the player entity is fully loaded
