@@ -23,7 +23,9 @@ wget https://api.spiget.org/v2/resources/59556/download -O EnchantmentSolution.j
 wget https://api.spiget.org/v2/resources/59556/download -O CrashAPI.jar
 
 cd ..
-echo "stop" | $SERVER_START
+$SERVER_START <<EOF
+stop
+EOF
 
 cd plugins/EnchantmentSolution
 sed -i '/enchanting_table:/,/anvil:/ s/custom_gui: .*/custom_gui: true/' config.yml
