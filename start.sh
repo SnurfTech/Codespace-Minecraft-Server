@@ -2,11 +2,14 @@ export SERVER_START="java -Xms7168M -Xmx7168M -XX:+AlwaysPreTouch -XX:+DisableEx
 export VIAVERSION_VERSION="$(curl -sL https://hangar.papermc.io/ViaVersion/ViaVersion/versions | grep -oP "[0-9]+\.[0-9]+\.[0-9]+<" | grep -P "^5" | tr -d "<" | sort -V | tail -n 1)"
 export VIABACKWARDS_VERSION="$(curl -sL https://hangar.papermc.io/ViaVersion/ViaBackwards/versions | grep -oP "[0-9]+\.[0-9]+\.[0-9]+<" | grep -P "^5" | tr -d "<" | sort -V | tail -n 1)"
 export SKRIPT_VERSION="$(curl -sL https://hangar.papermc.io/SkriptLang/Skript/versions | grep -oP "[0-9]+\.[0-9]+\.[0-9]+<" | grep -P "^2" | tr -d "<" | sort -V | tail -n 1)"
+export PAPER_VERSION=$(curl -s https://api.papermc.io/v2/projects/paper | jq -r '.versions[-1]')
+export PAPER_BUILD=$(curl -s https://api.papermc.io/v2/projects/paper/versions/${PAPER_VERSION} | jq -r '.builds[-1]')
+export PAPER_JAR_NAME="paper-${PAPER_VERSION}-${PAPER_BUILD}.jar"
 
 mkdir server
 cd server
 
-curl -L https://fill-data.papermc.io/v1/objects/51157c86280ef0c9f5a10f775b6ebb516dfcfe4f67820305847eccaae31df944/paper-1.21.11-123.jar -o server.jar
+wget https://api.papermc.io/v2/projects/paper/versions/${PAPER_VERSION}/builds/${PAPER_BUILD}/downloads/${PAPER_JAR_NAME} -O server.jar
 
 $SERVER_START
 echo "eula=true" > eula.txt
