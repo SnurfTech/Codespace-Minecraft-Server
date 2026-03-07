@@ -21,9 +21,11 @@ wget https://hangarcdn.papermc.io/plugins/ViaVersion/ViaBackwards/versions/$VIAB
 wget https://hangercdn.papermc.io/plugins/SkriptLand/Skript/versions/$SKRIPT_VERSION/PAPER/Skript-$SKRIPT_VERSION.jar
 wget https://api.spiget.org/v2/resources/59556/download -O EnchantmentSolution.jar
 wget https://api.spiget.org/v2/resources/59556/download -O CrashAPI.jar
+
+cd ..
 echo "stop" | $SERVER_START
 
-cd EnchantmentSolution
+cd plugins/EnchantmentSolution
 sed -i '/enchanting_table:/,/anvil:/ s/custom_gui: .*/custom_gui: true/' config.yml
 sed -i '/anvil:/,/grindstone:/ s/custom_gui: .*/custom_gui: false/' config.yml
 sed -i '/grindstone:/,/max_enchantments:/ s/custom_gui: .*/custom_gui: false/' config.yml
